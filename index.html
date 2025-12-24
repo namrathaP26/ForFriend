@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Special Letter 💌</title>
+<style>
+    body {
+        font-family: cursive;
+        background-color: #fce4ec;
+        margin:0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        overflow:hidden;
+    }
+    .center-screen {
+        text-align:center;
+        position:relative;
+        z-index:1;
+    }
+    .letter, .message, .card, .closing {
+        display:none;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        max-width:400px;
+        margin:auto;
+        position:relative;
+        z-index:1;
+    }
+    button {
+        background:#f48fb1;
+        border:none;
+        padding:10px 20px;
+        border-radius:10px;
+        cursor:pointer;
+        font-size:16px;
+        margin-top:15px;
+        color:white;
+    }
+    input {
+        padding:10px;
+        border-radius:10px;
+        border:1px solid #ccc;
+        font-size:16px;
+        width:70%;
+        text-align:center;
+    }
+    /* Floating hearts for all pages */
+    .floating-heart {
+        position: absolute;
+        bottom: -50px;
+        font-size: 14px;
+        animation: float linear infinite;
+        pointer-events: none;
+        opacity:0.8;
+    }
+    @keyframes float {
+        from { transform: translateY(0) rotate(0deg); opacity:1; }
+        to { transform: translateY(-120vh) rotate(360deg); opacity:0; }
+    }
+
+    /* Card style */
+    .card {
+        position: relative;
+        z-index: 1;
+        background: rgb(152, 218, 226);
+        padding: 25px;
+        border-radius: 20px;
+        max-width: 350px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(15, 9, 9, 0.1);
+        overflow: hidden;
+    }
+    .card .purple-heart {
+        position: absolute;
+        bottom: 0;
+        font-size: 12px;
+        color: rgba(128, 0, 128, 0.3);
+        animation: floatCardHeart linear infinite;
+        pointer-events: none;
+    }
+    @keyframes floatCardHeart {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+        20% { opacity: 1; }
+        100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+    }
+    h2 { color: #f7709d; }
+    p { color: #555; font-size: 16px; }
+    .cute { font-size: 28px; margin-top: 10px; }
+    .sub { display: flex; align-items: center; justify-content: center; gap: 10px; }
+    img { height: 60px; width: 60px; border-radius: 50%; }
+</style>
+</head>
+<body>
+
+<div class="center-screen">
+
+    <!-- Step 1: Initial letter -->
+    <div id="letter1" class="letter" style="display:block;">
+        <h2>💌 A Special Letter 💌</h2>
+        <p>Click the button to open your letter!</p>
+        <button onclick="showPassword()">Open 💖</button>
+    </div>
+
+    <!-- Step 2: Password -->
+    <div id="passwordDiv" class="letter">
+        <h2>🔒 Enter Password</h2>
+        <input type="password" id="passInput" placeholder="Enter Password"/>
+        <br>
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <!-- Step 3: First message -->
+    <div id="message1" class="message">
+        <h2>Hi my dear Pari 🥰</h2>
+        <p>I just wanted to tell you something special... 💖✨</p>
+        <button onclick="nextMessage()">Click me 💌</button>
+    </div>
+
+    <!-- Step 4: Second message -->
+    <div id="message2" class="message">
+        <h2>Hey Pragati! 🥺💜</h2>
+        <p>I want to tell you something… 🤗💖💜💞</p>
+        <button onclick="showCard()">Click me 💌</button>
+    </div>
+
+    <!-- Step 5: Card with hearts -->
+    <div class="card" id="finalCard">
+        <!-- Multiple purple hearts inside card -->
+        <span class="purple-heart" style="left:5%; font-size:14px; animation-duration:6s;">💜</span>
+        <span class="purple-heart" style="left:15%; font-size:16px; animation-duration:8s;">💜</span>
+        <span class="purple-heart" style="left:25%; font-size:12px; animation-duration:5s;">💜</span>
+        <span class="purple-heart" style="left:35%; font-size:18px; animation-duration:7s;">💜</span>
+        <span class="purple-heart" style="left:45%; font-size:14px; animation-duration:6.5s;">💜</span>
+        <span class="purple-heart" style="left:55%; font-size:16px; animation-duration:9s;">💜</span>
+        <span class="purple-heart" style="left:65%; font-size:12px; animation-duration:5.5s;">💜</span>
+        <span class="purple-heart" style="left:75%; font-size:18px; animation-duration:7.5s;">💜</span>
+        <span class="purple-heart" style="left:85%; font-size:14px; animation-duration:6s;">💜</span>
+        <span class="purple-heart" style="left:95%; font-size:16px; animation-duration:8s;">💜</span>
+
+        <div class="sub">
+            <h2>Hey 🌸</h2>
+            <img src="C:\Users\91799\Pictures\Screenshots\Screenshot 2025-12-24 101909.png" alt="image">
+        </div>
+
+        <p>
+            I know you’re upset, and your feelings really matter to me.<br><br>
+            If I made your heart even a little heavy,<br>
+            <strong>forgive me</strong> 🥺👉👈<br><br>
+            Your smile means more to me than anything.
+        </p>
+
+        <div class="cute">😊💗</div>
+
+        <button onclick="showClosing()" style="margin-top:20px;">Click me for closing 💌</button>
+    </div>
+
+    <!-- Step 6: Closing -->
+    <div id="closing" class="closing">
+        <h2>💖 Thanks for your valuable time 💖</h2>
+        <p>Bye Pari! 😘💜✨</p>
+    </div>
+
+</div>
+
+<script>
+    function createFloatingHearts(num) {
+        for(let i=0;i<num;i++){
+            let heart = document.createElement('span');
+            heart.className='floating-heart';
+            heart.style.left=Math.random()*100+'%';
+            heart.style.fontSize=(12+Math.random()*18)+'px';
+            heart.style.animationDuration=(5+Math.random()*10)+'s';
+            heart.textContent=Math.random()>0.5?'💖':'💜';
+            document.body.appendChild(heart);
+        }
+    }
+
+    // Add floating hearts initially
+    createFloatingHearts(15);
+
+    function showPassword() {
+        document.getElementById('letter1').style.display='none';
+        document.getElementById('passwordDiv').style.display='block';
+        createFloatingHearts(15);
+    }
+
+    function checkPassword() {
+        const pass = document.getElementById('passInput').value;
+        if(pass === '290407') {
+            document.getElementById('passwordDiv').style.display='none';
+            document.getElementById('message1').style.display='block';
+            createFloatingHearts(15);
+        } else {
+            alert('Wrong password! Try again 💖');
+        }
+    }
+
+    function nextMessage() {
+        document.getElementById('message1').style.display='none';
+        document.getElementById('message2').style.display='block';
+        createFloatingHearts(15);
+    }
+
+    function showCard() {
+        document.getElementById('message2').style.display='none';
+        document.getElementById('finalCard').style.display='block';
+        createFloatingHearts(20);
+    }
+
+    function showClosing(){
+        document.getElementById('finalCard').style.display='none';
+        document.getElementById('closing').style.display='block';
+        createFloatingHearts(20);
+    }
+</script>
+
+</body>
+</html>
